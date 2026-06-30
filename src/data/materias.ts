@@ -79,27 +79,29 @@ export const grupos: GrupoInfo[] = [
 export const materias: Materia[] = [
   // ============ PRIMER AÑO ============
   // ---- Semestre 1 (sin previas) ----
-  { id: "tt1", nombre: "Taller de Tecnologías 1", anio: 1, semestre: 1, requisitos: [] },
-  { id: "prog1", nombre: "Programación 1", anio: 1, semestre: 1, requisitos: [] },
-  { id: "algebra", nombre: "Álgebra Lineal", anio: 1, semestre: 1, requisitos: [] },
-  { id: "calculo1", nombre: "Cálculo en una Variable", anio: 1, semestre: 1, requisitos: [] },
+  { id: "tt1", nombre: "Taller de Tecnologías 1", anio: 1, semestre: 1, requisitos: [], exoneracion: 70 },
+  { id: "prog1", nombre: "Programación 1", anio: 1, semestre: 1, requisitos: [], exoneracion: 70 },
+  { id: "algebra", nombre: "Álgebra Lineal", anio: 1, semestre: 1, requisitos: [], exoneracion: 70 },
+  { id: "calculo1", nombre: "Cálculo en una Variable", anio: 1, semestre: 1, requisitos: [], exoneracion: 70 },
 
   // ---- Semestre 2 ----
-  { id: "fcomp", nombre: "Fundamentos de Computación", anio: 1, semestre: 2, requisitos: [] },
+  { id: "fcomp", nombre: "Fundamentos de Computación", anio: 1, semestre: 2, requisitos: [], exoneracion: 70 },
   {
     id: "prog2",
     nombre: "Programación 2",
     anio: 1,
     semestre: 2,
     requisitos: [{ materiaId: "prog1", tipo: "parcial" }],
+    exoneracion: 70,
   },
-  { id: "matdisc", nombre: "Matemática Discreta", anio: 1, semestre: 2, requisitos: [] },
+  { id: "matdisc", nombre: "Matemática Discreta", anio: 1, semestre: 2, requisitos: [], exoneracion: 70 },
   {
     id: "fsc",
     nombre: "Fundamentos de Sistemas Ciberfísicos",
     anio: 1,
     semestre: 2,
     requisitos: [{ materiaId: "calculo1", tipo: "parcial" }],
+    exoneracion: 70,
   },
 
   // ============ SEGUNDO AÑO ============
@@ -110,6 +112,7 @@ export const materias: Materia[] = [
     anio: 2,
     semestre: 3,
     requisitos: [{ materiaId: "fcomp", tipo: "parcial" }],
+    exoneracion: 70,
   },
   {
     id: "eda1",
@@ -120,8 +123,9 @@ export const materias: Materia[] = [
       { materiaId: "prog2", tipo: "parcial" },
       { materiaId: "fcomp", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
-  { id: "arqsist", nombre: "Arquitectura de Sistemas", anio: 2, semestre: 3, requisitos: [] },
+  { id: "arqsist", nombre: "Arquitectura de Sistemas", anio: 2, semestre: 3, requisitos: [], exoneracion: 70 },
   {
     id: "probest",
     nombre: "Probabilidad y Estadística",
@@ -131,6 +135,7 @@ export const materias: Materia[] = [
       { materiaId: "algebra", tipo: "total" },
       { materiaId: "calculo1", tipo: "total" },
     ],
+    exoneracion: 70,
   },
 
   // ---- Semestre 4 ----
@@ -140,6 +145,7 @@ export const materias: Materia[] = [
     anio: 2,
     semestre: 4,
     requisitos: [{ materiaId: "prog2", tipo: "parcial" }],
+    exoneracion: 70,
   },
   {
     id: "eda2",
@@ -150,6 +156,7 @@ export const materias: Materia[] = [
       { materiaId: "eda1", tipo: "parcial" },
       { materiaId: "matdisc", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "bd1",
@@ -157,6 +164,7 @@ export const materias: Materia[] = [
     anio: 2,
     semestre: 4,
     requisitos: [{ materiaId: "prog2", tipo: "parcial" }],
+    exoneracion: 70,
   },
   {
     id: "so",
@@ -164,6 +172,7 @@ export const materias: Materia[] = [
     anio: 2,
     semestre: 4,
     requisitos: [{ materiaId: "arqsist", tipo: "parcial" }],
+    exoneracion: 70,
   },
   // Materia de Matemática: casillero con 2 alternativas (grupo "mat-sem4").
   {
@@ -176,6 +185,7 @@ export const materias: Materia[] = [
       { materiaId: "calculo1", tipo: "total" },
     ],
     grupo: "mat-sem4",
+    exoneracion: 70,
   },
   {
     id: "calculo2",
@@ -184,17 +194,19 @@ export const materias: Materia[] = [
     semestre: 4,
     requisitos: [{ materiaId: "calculo1", tipo: "parcial" }],
     grupo: "mat-sem4",
+    exoneracion: 70,
   },
 
   // ============ TERCER AÑO ============
   // ---- Semestre 5 ----
-  { id: "admgral", nombre: "Administración General", anio: 3, semestre: 5, requisitos: [] },
+  { id: "admgral", nombre: "Administración General", anio: 3, semestre: 5, requisitos: [], exoneracion: 70 },
   {
     id: "redes",
     nombre: "Redes",
     anio: 3,
     semestre: 5,
     requisitos: [{ materiaId: "so", tipo: "parcial" }],
+    exoneracion: 70,
   },
   {
     id: "bd2",
@@ -205,6 +217,7 @@ export const materias: Materia[] = [
       { materiaId: "bd1", tipo: "parcial" },
       { materiaId: "logica", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "da1",
@@ -216,6 +229,7 @@ export const materias: Materia[] = [
       { materiaId: "bd1", tipo: "parcial" },
       { materiaId: "fis", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "teoriacomp",
@@ -226,6 +240,7 @@ export const materias: Materia[] = [
       { materiaId: "eda1", tipo: "parcial" },
       { materiaId: "logica", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   // Materia de Innovación y Emprendedurismo: casillero con 2 alternativas
   // con dictado activo (grupo "innov-sem5").
@@ -236,6 +251,7 @@ export const materias: Materia[] = [
     semestre: 5,
     requisitos: [],
     grupo: "innov-sem5",
+    exoneracion: 70,
   },
   {
     id: "emprendimientos",
@@ -247,6 +263,7 @@ export const materias: Materia[] = [
     // dictado activo), así que queda como la previa específica.
     requisitos: [{ materiaId: "admgral", tipo: "total" }],
     grupo: "innov-sem5",
+    exoneracion: 70,
   },
 
   // ---- Semestre 6 ----
@@ -264,6 +281,7 @@ export const materias: Materia[] = [
       { materiaId: "probest", tipo: "total" },
     ],
     grupo: "ml-sem6",
+    exoneracion: 70,
   },
   {
     id: "mldatos",
@@ -275,6 +293,7 @@ export const materias: Materia[] = [
       { materiaId: "probest", tipo: "total" },
     ],
     grupo: "ml-sem6",
+    exoneracion: 70,
   },
   {
     id: "mlsecuencias",
@@ -286,6 +305,7 @@ export const materias: Materia[] = [
       { materiaId: "probest", tipo: "total" },
     ],
     grupo: "ml-sem6",
+    exoneracion: 70,
   },
   {
     id: "progredes",
@@ -296,6 +316,7 @@ export const materias: Materia[] = [
       { materiaId: "da1", tipo: "parcial" },
       { materiaId: "so", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "tallertec2",
@@ -310,6 +331,7 @@ export const materias: Materia[] = [
       { materiaId: "fsc", tipo: "parcial" },
       { materiaId: "tt1", tipo: "total" },
     ],
+    exoneracion: 70,
   },
   {
     id: "da2",
@@ -320,6 +342,7 @@ export const materias: Materia[] = [
       { materiaId: "da1", tipo: "parcial" },
       { materiaId: "fis", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "isagil1",
@@ -331,6 +354,7 @@ export const materias: Materia[] = [
       { materiaId: "da1", tipo: "parcial" },
       { materiaId: "fis", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
 
   // ---- Semestre 7 ----
@@ -344,6 +368,7 @@ export const materias: Materia[] = [
       { materiaId: "probest", tipo: "parcial" },
       { materiaId: "logica", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "seginfo",
@@ -351,6 +376,7 @@ export const materias: Materia[] = [
     anio: 4,
     semestre: 7,
     requisitos: [],
+    exoneracion: 70,
   },
   // Materia de Gestión de la Información (Big Data): casillero con 4
   // alternativas con dictado activo (grupo "bigdata-sem7").
@@ -365,6 +391,7 @@ export const materias: Materia[] = [
       { materiaId: "so", tipo: "total" },
     ],
     grupo: "bigdata-sem7",
+    exoneracion: 70,
   },
   {
     id: "webmining",
@@ -373,6 +400,7 @@ export const materias: Materia[] = [
     semestre: 7,
     requisitos: [{ materiaId: "bd1", tipo: "total" }],
     grupo: "bigdata-sem7",
+    exoneracion: 70,
   },
   {
     id: "bdnorelacional",
@@ -381,6 +409,7 @@ export const materias: Materia[] = [
     semestre: 7,
     requisitos: [{ materiaId: "bd2", tipo: "total" }],
     grupo: "bigdata-sem7",
+    exoneracion: 70,
   },
   {
     id: "datamining",
@@ -389,6 +418,7 @@ export const materias: Materia[] = [
     semestre: 7,
     requisitos: [{ materiaId: "bd1", tipo: "total" }],
     grupo: "bigdata-sem7",
+    exoneracion: 70,
   },
   {
     id: "arqsoft",
@@ -401,6 +431,7 @@ export const materias: Materia[] = [
       { materiaId: "da2", tipo: "parcial" },
       { materiaId: "progredes", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   {
     id: "isagil2",
@@ -413,8 +444,9 @@ export const materias: Materia[] = [
       { materiaId: "progredes", tipo: "parcial" },
       { materiaId: "isagil1", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
-  { id: "comliderazgo", nombre: "Comunicación y Liderazgo", anio: 4, semestre: 7, requisitos: [] },
+  { id: "comliderazgo", nombre: "Comunicación y Liderazgo", anio: 4, semestre: 7, requisitos: [], exoneracion: 70 },
 
   // ---- Semestre 8 ----
   // Materia de Lenguajes de Programación: casillero con 3 alternativas con
@@ -429,6 +461,7 @@ export const materias: Materia[] = [
       { materiaId: "logica", tipo: "parcial" },
     ],
     grupo: "lenguajes-sem8",
+    exoneracion: 70,
   },
   {
     id: "paralelosdist",
@@ -437,6 +470,7 @@ export const materias: Materia[] = [
     semestre: 8,
     requisitos: [{ materiaId: "eda1", tipo: "total" }],
     grupo: "lenguajes-sem8",
+    exoneracion: 70,
   },
   {
     id: "funcionalavanzada",
@@ -448,6 +482,7 @@ export const materias: Materia[] = [
       { materiaId: "logica", tipo: "parcial" },
     ],
     grupo: "lenguajes-sem8",
+    exoneracion: 70,
   },
   {
     id: "trabajointegrador",
@@ -461,6 +496,7 @@ export const materias: Materia[] = [
       { materiaId: "progredes", tipo: "parcial" },
       { materiaId: "isagil1", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
   // Materia de Nuevas Tecnologías: casillero con 2 alternativas con dictado
   // activo (grupo "nuevastec-sem8").
@@ -474,6 +510,7 @@ export const materias: Materia[] = [
       { materiaId: "da2", tipo: "parcial" },
     ],
     grupo: "nuevastec-sem8",
+    exoneracion: 70,
   },
   {
     id: "disenousuario",
@@ -485,6 +522,7 @@ export const materias: Materia[] = [
       { materiaId: "da2", tipo: "parcial" },
     ],
     grupo: "nuevastec-sem8",
+    exoneracion: 70,
   },
   {
     id: "arqsoftpractica",
@@ -497,6 +535,7 @@ export const materias: Materia[] = [
       { materiaId: "isagil2", tipo: "parcial" },
       { grupoId: "ml-sem6", tipo: "total" },
     ],
+    exoneracion: 70,
   },
   {
     id: "devprodbasetec",
@@ -508,6 +547,7 @@ export const materias: Materia[] = [
       { materiaId: "progredes", tipo: "parcial" },
       { materiaId: "isagil1", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
 
   // ============ QUINTO AÑO ============
@@ -524,13 +564,14 @@ export const materias: Materia[] = [
       { materiaId: "isagil1", tipo: "parcial" },
     ],
     grupo: "comneg-sem9",
+    exoneracion: 70,
   },
-  { id: "recursoshumanos", nombre: "Recursos Humanos", anio: 5, semestre: 9, requisitos: [], grupo: "comneg-sem9" },
-  { id: "electiva1", nombre: "Electiva 1 (a definir)", anio: 5, semestre: 9, requisitos: [] },
+  { id: "recursoshumanos", nombre: "Recursos Humanos", anio: 5, semestre: 9, requisitos: [], grupo: "comneg-sem9", exoneracion: 70 },
+  { id: "electiva1", nombre: "Electiva 1 (a definir)", anio: 5, semestre: 9, requisitos: [], exoneracion: 70 },
 
   // ---- Semestre 10 ----
-  { id: "electiva2", nombre: "Electiva 2 (a definir)", anio: 5, semestre: 10, requisitos: [] },
-  { id: "electiva3", nombre: "Electiva 3 (a definir)", anio: 5, semestre: 10, requisitos: [] },
+  { id: "electiva2", nombre: "Electiva 2 (a definir)", anio: 5, semestre: 10, requisitos: [], exoneracion: 70 },
+  { id: "electiva3", nombre: "Electiva 3 (a definir)", anio: 5, semestre: 10, requisitos: [], exoneracion: 70 },
   {
     id: "proyecto",
     nombre: "Proyecto",
@@ -547,6 +588,7 @@ export const materias: Materia[] = [
       { materiaId: "trabajointegrador", tipo: "total" },
       { grupoId: "ml-sem6", tipo: "parcial" },
     ],
+    exoneracion: 70,
   },
 ];
 
