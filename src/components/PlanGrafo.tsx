@@ -420,15 +420,11 @@ export default function PlanGrafo() {
         </span>
         {m.exoneracion && (
           <span style={{
-            fontSize: 9, fontWeight: 700, marginTop: 4,
-            padding: "2px 6px", borderRadius: 4,
-            background: m.exoneracion === 86 ? "#dbeafe" : "#ede9fe",
-            color: m.exoneracion === 86 ? "#1d4ed8" : "#6d28d9",
-            border: `1px solid ${m.exoneracion === 86 ? "#93c5fd" : "#c4b5fd"}`,
-            letterSpacing: "0.04em",
-          }}>
-            EX {m.exoneracion}
-          </span>
+            position: "absolute", bottom: 5, right: 5,
+            width: 7, height: 7, borderRadius: "50%",
+            background: m.exoneracion === 86 ? "#2d2a26" : "#7dd3fc",
+            flexShrink: 0,
+          }} />
         )}
         {modo === "consultar" ? (
           hl === "orange" ? (
@@ -665,6 +661,21 @@ export default function PlanGrafo() {
                 <Chip bg="#fef9c3" border="2px solid #ca8a04" label="Necesitás crédito parcial" />
               </>
             )}
+          </div>
+        </div>
+        <div>
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", color: "#a39c8d", margin: "0 0 8px 0" }}>
+            Exoneración
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px", marginBottom: 14 }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#7dd3fc", flexShrink: 0, display: "inline-block" }} />
+              70
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#2d2a26", flexShrink: 0, display: "inline-block" }} />
+              86
+            </span>
           </div>
         </div>
         <div>
