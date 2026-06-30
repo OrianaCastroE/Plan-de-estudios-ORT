@@ -180,7 +180,20 @@ function getMateriasHito(hito: HitoTitulo, selecciones: Map<string, string>): st
   return result;
 }
 
+function useWindowWidth() {
+  const [width, setWidth] = useState(() => window.innerWidth);
+  useEffect(() => {
+    const handler = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+  return width;
+}
+
 export default function PlanGrafo() {
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth < 640;
+
   const [progreso, setProgreso] = useState<Map<string, EstadoMateria>>(loadProgreso);
   const [selecciones, setSelecciones] = useState<Map<string, string>>(loadSelecciones);
   const [modo, setModo] = useState<Modo>("marcar");
@@ -473,7 +486,7 @@ export default function PlanGrafo() {
     <div style={{ fontFamily: "system-ui, sans-serif" }}>
       {/* Tira de estadísticas */}
       <div style={{
-        display: "grid", gridTemplateColumns: "repeat(4, 1fr)",
+        display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
         background: "#fff", borderRadius: 14,
         border: "1.5px solid #e5e0d8",
         boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
@@ -525,7 +538,7 @@ export default function PlanGrafo() {
             : it.materia.id === "comliderazgo";
         const normales = items.filter((i) => !esTaller(i));
         const talleres = items.filter((i) => esTaller(i));
-        const cols = normales.length || 1;
+        const cols = isMobile ? Math.min(normales.length || 1, 2) : normales.length || 1;
         const hitosSem = hitos.filter((h) => h.despuesDeSemestre === sem);
         const stats = progresoPorSemestre.get(sem);
         const semCompleto = stats && stats.total > 0 && stats.completadas === stats.total;
@@ -580,25 +593,31 @@ export default function PlanGrafo() {
                 );
               })()}
             </div>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: proyectoItem
-                ? `repeat(${colsNormales}, 1fr) 2fr`
-                : `repeat(${colsNormales}, 1fr)`,
-              gridTemplateRows: "auto auto",
-              gap: 8,
-            }}>
-              {items9.map((item, i) =>
-                renderCard(item, { gridColumn: i + 1, gridRow: 1 })
-              )}
-              {otros10.map((item, i) =>
-                renderCard(item, { gridColumn: i + 1, gridRow: 2 })
-              )}
-              {proyectoItem && renderCard(proyectoItem, {
-                gridColumn: colsNormales + 1,
-                gridRow: "1 / 3",
-              })}
-            </div>
+            {isMobile ? (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
+                {[...items9, ...items10].map((item) => renderCard(item))}
+              </div>
+            ) : (
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: proyectoItem
+                  ? `repeat(${colsNormales}, 1fr) 2fr`
+                  : `repeat(${colsNormales}, 1fr)`,
+                gridTemplateRows: "auto auto",
+                gap: 8,
+              }}>
+                {items9.map((item, i) =>
+                  renderCard(item, { gridColumn: i + 1, gridRow: 1 })
+                )}
+                {otros10.map((item, i) =>
+                  renderCard(item, { gridColumn: i + 1, gridRow: 2 })
+                )}
+                {proyectoItem && renderCard(proyectoItem, {
+                  gridColumn: colsNormales + 1,
+                  gridRow: "1 / 3",
+                })}
+              </div>
+            )}
           </div>
           {hitos.filter((h) => h.despuesDeSemestre === 10).map((h) => (
             <HitoCard key={h.id} hito={h} progreso={progreso} selecciones={selecciones}
@@ -680,7 +699,7 @@ function HitoCard({
     }}>
       <div style={{ height: 3, background: accentColor }} />
 
-      <div style={{ padding: "18px 22px", display: "flex", gap: 18, alignItems: "flex-start" }}>
+      <div style={{ padding: "14px 16px", display: "flex", gap: 14, alignItems: "flex-start" }}>
         {/* Ícono de título */}
         <div style={{
           width: 46, height: 46, borderRadius: 12, flexShrink: 0,

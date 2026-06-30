@@ -30,7 +30,7 @@ function App() {
           <span className="w-[6px] h-[6px] rounded-full bg-[#b5482a] flex-shrink-0" />
           Plan 2019 · ORT Uruguay
         </div>
-        <h1 className="font-serif text-[58px] leading-[1.07] tracking-tight mb-5">
+        <h1 className="font-serif text-[36px] sm:text-[48px] md:text-[58px] leading-[1.07] tracking-tight mb-5">
           El plan de estudios,
           <br />
           <em className="not-italic text-[#b5482a]">de un vistazo.</em>
