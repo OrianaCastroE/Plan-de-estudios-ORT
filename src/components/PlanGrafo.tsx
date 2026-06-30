@@ -503,8 +503,12 @@ export default function PlanGrafo() {
         />
       </div>
 
-      {/* Modo toggle */}
-      <div style={{ marginBottom: 24 }}>
+      {/* Modo toggle — sticky bajo el nav */}
+      <div style={{
+        position: "sticky", top: 48, zIndex: 40,
+        background: "rgba(253,251,247,0.92)", backdropFilter: "blur(8px)",
+        padding: "10px 0", marginBottom: 14,
+      }}>
         <div style={{ display: "inline-flex", background: "#eeebe5", borderRadius: 10, padding: 3, gap: 3 }}>
           {(["marcar", "consultar"] as Modo[]).map((m) => (
             <button
