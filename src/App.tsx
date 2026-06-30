@@ -3,24 +3,56 @@ import PlanGrafo from "./components/PlanGrafo";
 function App() {
   return (
     <div className="min-h-screen bg-[#fdfbf7] text-[#2d2a26]">
-      <header className="max-w-5xl mx-auto px-6 pt-14 pb-8">
-        <p className="text-xs tracking-[0.25em] uppercase text-[#b5482a] font-semibold mb-3">
-          Ingeniería en Sistemas · ORT
-        </p>
-        <h1 className="font-serif text-5xl leading-tight mb-4">
-          El plan de estudios,<br />de un vistazo.
+      {/* Sticky nav */}
+      <nav className="sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-sm border-b border-[#e5e0d8]">
+        <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#2d2a26]">
+            ORT · Ing. en Sistemas
+          </span>
+          <a
+            href="https://orianacastroe.github.io/Portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-medium text-[#7a7368] hover:text-[#b5482a] transition-colors duration-200 flex items-center gap-1 group"
+          >
+            Oriana Castro
+            <span className="inline-block opacity-40 group-hover:opacity-100 group-hover:translate-x-px group-hover:-translate-y-px transition-all duration-200">
+              ↗
+            </span>
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <header className="max-w-5xl mx-auto px-6 pt-14 pb-10">
+        <div className="w-8 h-[3px] bg-[#b5482a] rounded-full mb-6" />
+        <div className="inline-flex items-center gap-2 px-3 py-[6px] rounded-full border border-[#e5e0d8] bg-white text-[10px] font-bold tracking-[0.18em] uppercase text-[#2d2a26] mb-6 shadow-sm select-none">
+          <span className="w-[6px] h-[6px] rounded-full bg-[#b5482a] flex-shrink-0" />
+          Plan 2019 · ORT Uruguay
+        </div>
+        <h1 className="font-serif text-[58px] leading-[1.07] tracking-tight mb-5">
+          El plan de estudios,
+          <br />
+          <em className="not-italic text-[#b5482a]">de un vistazo.</em>
         </h1>
-        <p className="max-w-xl text-[#5a544a]">
-          Clickeá cualquier materia y vas a ver en dorado lo que necesitás para
-          cursarla, y en terracota lo que desbloqueás al aprobarla. Nada de
-          buscar en un PDF de 40 páginas.
+        <p className="max-w-lg text-[#5a544a] text-[15px] leading-relaxed">
+          Marcá tus materias con crédito parcial o total — el plan se actualiza
+          en cascada automáticamente. Usá{" "}
+          <strong className="font-semibold text-[#2d2a26]">
+            Consultar materia
+          </strong>{" "}
+          para ver exactamente qué necesitás para cursar cualquier cosa.
         </p>
       </header>
-      <main className="max-w-6xl mx-auto px-6 pb-20">
+
+      <main className="max-w-6xl mx-auto px-6 pb-24">
         <PlanGrafo />
       </main>
-      <footer className="max-w-5xl mx-auto px-6 pb-10 text-xs text-[#a39c8d]">
-        Hecho por Oriana Castro — datos sujetos a revisión contra el plan oficial.
+
+      <footer className="border-t border-[#e5e0d8]">
+        <div className="max-w-5xl mx-auto px-6 py-6 text-[11px] text-[#a39c8d]">
+          Datos sujetos a revisión contra el plan oficial.
+        </div>
       </footer>
     </div>
   );
