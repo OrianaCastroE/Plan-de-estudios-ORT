@@ -418,6 +418,18 @@ export default function PlanGrafo() {
         <span style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.4 }}>
           {m.nombre}
         </span>
+        {m.exoneracion && (
+          <span style={{
+            fontSize: 9, fontWeight: 700, marginTop: 4,
+            padding: "2px 6px", borderRadius: 4,
+            background: m.exoneracion === 86 ? "#dbeafe" : "#ede9fe",
+            color: m.exoneracion === 86 ? "#1d4ed8" : "#6d28d9",
+            border: `1px solid ${m.exoneracion === 86 ? "#93c5fd" : "#c4b5fd"}`,
+            letterSpacing: "0.04em",
+          }}>
+            EX {m.exoneracion}
+          </span>
+        )}
         {modo === "consultar" ? (
           hl === "orange" ? (
             <span style={{ fontSize: 10, marginTop: 4, fontWeight: 400 }}>requiere total</span>

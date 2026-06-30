@@ -26,6 +26,7 @@ export interface Materia {
   // plan (ej. "Álgebra 2" vs "Cálculo 2"), todas comparten este id de grupo.
   // El semestre las muestra como UNA sola caja con un lápiz para elegir cuál.
   grupo?: string;
+  exoneracion?: 70 | 86; // nota mínima para exonerar el examen final
 }
 
 // Metadata de cada grupo de alternativas: nombre del "casillero" tal como
