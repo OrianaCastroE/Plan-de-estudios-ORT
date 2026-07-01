@@ -9,17 +9,25 @@ function App() {
           <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#2d2a26]">
             ORT · Ing. en Sistemas
           </span>
-          <a
-            href="https://orianacastroe.github.io/Portfolio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] font-medium text-[#7a7368] hover:text-[#b5482a] transition-colors duration-200 flex items-center gap-1 group"
-          >
-            Oriana Castro
-            <span className="inline-block opacity-40 group-hover:opacity-100 group-hover:translate-x-px group-hover:-translate-y-px transition-all duration-200">
-              ↗
-            </span>
-          </a>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => window.print()}
+              className="no-print text-[11px] font-medium text-[#7a7368] hover:text-[#b5482a] transition-colors duration-200 flex items-center gap-1"
+            >
+              Exportar PDF
+            </button>
+            <a
+              href="https://orianacastroe.github.io/Portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] font-medium text-[#7a7368] hover:text-[#b5482a] transition-colors duration-200 flex items-center gap-1 group"
+            >
+              Oriana Castro
+              <span className="inline-block opacity-40 group-hover:opacity-100 group-hover:translate-x-px group-hover:-translate-y-px transition-all duration-200">
+                ↗
+              </span>
+            </a>
+          </div>
         </div>
       </nav>
 

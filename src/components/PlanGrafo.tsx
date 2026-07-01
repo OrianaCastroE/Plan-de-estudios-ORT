@@ -192,7 +192,15 @@ function useWindowWidth() {
 
 export default function PlanGrafo() {
   const windowWidth = useWindowWidth();
-  const isMobile = windowWidth < 640;
+  const [isPrinting, setIsPrinting] = useState(false);
+  useEffect(() => {
+    const before = () => setIsPrinting(true);
+    const after = () => setIsPrinting(false);
+    window.addEventListener("beforeprint", before);
+    window.addEventListener("afterprint", after);
+    return () => { window.removeEventListener("beforeprint", before); window.removeEventListener("afterprint", after); };
+  }, []);
+  const isMobile = !isPrinting && windowWidth < 640;
 
   const [progreso, setProgreso] = useState<Map<string, EstadoMateria>>(loadProgreso);
   const [selecciones, setSelecciones] = useState<Map<string, string>>(loadSelecciones);
@@ -512,7 +520,7 @@ export default function PlanGrafo() {
       </div>
 
       {/* Modo toggle — sticky bajo el nav */}
-      <div style={{
+      <div className="no-print" style={{
         position: "sticky", top: 48, zIndex: 40,
         background: "rgba(253,251,247,0.92)", backdropFilter: "blur(8px)",
         padding: "10px 0", marginBottom: 14,
@@ -537,7 +545,7 @@ export default function PlanGrafo() {
       </div>
 
       {modo === "consultar" && !consultada && (
-        <p style={{ fontSize: 13, color: "#7a7368", marginBottom: 24 }}>
+        <p className="no-print" style={{ fontSize: 13, color: "#7a7368", marginBottom: 24 }}>
           Tocá una materia para ver qué necesitás para cursarla.
         </p>
       )}
