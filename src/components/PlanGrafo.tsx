@@ -833,6 +833,7 @@ function StatStat({
       padding: "18px 20px",
       borderRight: "1px solid #e5e0d8",
       display: "flex", flexDirection: "column", gap: 4,
+      alignItems: "center", textAlign: "center",
     }}>
       <span style={{
         fontSize: isText ? 18 : 30, fontWeight: 800, lineHeight: 1,
