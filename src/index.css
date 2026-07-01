@@ -37,8 +37,10 @@ body {
   }
 
   main {
+    width: 1152px !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     zoom: 0.52;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 }
