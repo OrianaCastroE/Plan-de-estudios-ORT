@@ -190,16 +190,8 @@ function useWindowWidth() {
   return width;
 }
 
-export default function PlanGrafo() {
+export default function PlanGrafo({ isPrinting = false }: { isPrinting?: boolean }) {
   const windowWidth = useWindowWidth();
-  const [isPrinting, setIsPrinting] = useState(false);
-  useEffect(() => {
-    const before = () => setIsPrinting(true);
-    const after = () => setIsPrinting(false);
-    window.addEventListener("beforeprint", before);
-    window.addEventListener("afterprint", after);
-    return () => { window.removeEventListener("beforeprint", before); window.removeEventListener("afterprint", after); };
-  }, []);
   const isMobile = !isPrinting && windowWidth < 640;
 
   const [progreso, setProgreso] = useState<Map<string, EstadoMateria>>(loadProgreso);

@@ -1,6 +1,20 @@
+import { useState, useCallback } from "react";
 import PlanGrafo from "./components/PlanGrafo";
 
 function App() {
+  const [isPrinting, setIsPrinting] = useState(false);
+
+  const handlePrint = useCallback(() => {
+    setIsPrinting(true);
+    // Esperar 2 frames para que React re-renderice antes de imprimir
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.print();
+        setIsPrinting(false);
+      });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#fdfbf7] text-[#2d2a26]">
       {/* Sticky nav */}
@@ -11,7 +25,7 @@ function App() {
           </span>
           <div className="flex items-center gap-4">
             <button
-              onClick={() => window.print()}
+              onClick={handlePrint}
               className="no-print text-[11px] font-medium text-[#7a7368] hover:text-[#b5482a] transition-colors duration-200 flex items-center gap-1"
             >
               Exportar PDF
@@ -54,7 +68,7 @@ function App() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 pb-24">
-        <PlanGrafo />
+        <PlanGrafo isPrinting={isPrinting} />
       </main>
 
       <footer className="no-print border-t border-[#e5e0d8]">
