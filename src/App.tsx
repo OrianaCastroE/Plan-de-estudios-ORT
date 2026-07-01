@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#fdfbf7] text-[#2d2a26]">
       {/* Sticky nav */}
-      <nav className="sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-sm border-b border-[#e5e0d8]">
+      <nav className="no-print sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-sm border-b border-[#e5e0d8]">
         <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
           <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#2d2a26]">
             ORT · Ing. en Sistemas
@@ -32,7 +32,7 @@ function App() {
       </nav>
 
       {/* Hero */}
-      <header className="max-w-5xl mx-auto px-6 pt-14 pb-10">
+      <header className="no-print max-w-5xl mx-auto px-6 pt-14 pb-10">
         <div className="w-8 h-[3px] bg-[#b5482a] rounded-full mb-6" />
         <div className="inline-flex items-center gap-2 px-3 py-[6px] rounded-full border border-[#e5e0d8] bg-white text-[10px] font-bold tracking-[0.18em] uppercase text-[#2d2a26] mb-6 shadow-sm select-none">
           <span className="w-[6px] h-[6px] rounded-full bg-[#b5482a] flex-shrink-0" />
@@ -57,11 +57,14 @@ function App() {
         <PlanGrafo />
       </main>
 
-      <footer className="border-t border-[#e5e0d8]">
+      <footer className="no-print border-t border-[#e5e0d8]">
         <div className="max-w-5xl mx-auto px-6 py-6 text-[11px] text-[#a39c8d]">
           Datos sujetos a revisión contra el plan oficial.
         </div>
       </footer>
+      <div className="print-only" style={{ textAlign: "center", fontSize: 10, color: "#a39c8d", marginTop: 12 }}>
+        orianacastroe.github.io/Plan-de-estudios-ORT
+      </div>
     </div>
   );
 }

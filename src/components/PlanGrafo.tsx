@@ -583,11 +583,13 @@ export default function PlanGrafo() {
                 {talleres.map((item) => renderCard(item, { gridColumn: "1 / -1" }))}
               </div>
             </div>
-            {hitosSem.map((h) => (
-              <HitoCard key={h.id} hito={h} progreso={progreso} selecciones={selecciones}
-                capaColor={LAYER_COLORS[(hitos.indexOf(h) + 1) as 1 | 2 | 3]}
-                index={hitos.indexOf(h)} />
-            ))}
+            <div className="no-print">
+              {hitosSem.map((h) => (
+                <HitoCard key={h.id} hito={h} progreso={progreso} selecciones={selecciones}
+                  capaColor={LAYER_COLORS[(hitos.indexOf(h) + 1) as 1 | 2 | 3]}
+                  index={hitos.indexOf(h)} />
+              ))}
+            </div>
           </React.Fragment>
         );
       })}
@@ -639,16 +641,18 @@ export default function PlanGrafo() {
               </div>
             )}
           </div>
-          {hitos.filter((h) => h.despuesDeSemestre === 10).map((h) => (
-            <HitoCard key={h.id} hito={h} progreso={progreso} selecciones={selecciones}
-              capaColor={LAYER_COLORS[(hitos.indexOf(h) + 1) as 1 | 2 | 3]}
-              index={hitos.indexOf(h)} />
-          ))}
+          <div className="no-print">
+            {hitos.filter((h) => h.despuesDeSemestre === 10).map((h) => (
+              <HitoCard key={h.id} hito={h} progreso={progreso} selecciones={selecciones}
+                capaColor={LAYER_COLORS[(hitos.indexOf(h) + 1) as 1 | 2 | 3]}
+                index={hitos.indexOf(h)} />
+            ))}
+          </div>
         </>
       )}
 
       {/* Leyenda */}
-      <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid #e5e0d8", fontSize: 12, color: "#7a7368", display: "flex", flexDirection: "column", gap: 14 }}>
+      <div className="no-print" style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid #e5e0d8", fontSize: 12, color: "#7a7368", display: "flex", flexDirection: "column", gap: 14 }}>
         <div>
           <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", color: "#a39c8d", margin: "0 0 8px 0" }}>
             Estado de la materia
